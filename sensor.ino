@@ -11,7 +11,7 @@ const int sensorTrigBack = 3;
 
 int servoAngle = 0;
 
-long duration, cm, durationBack, cmBack;
+long duration, cmFront, durationBack, cmBack;
 volatile int state = HIGH;
 
 Servo servo;
@@ -76,9 +76,9 @@ void readUltrassons(int x)
 
 	duration = pulseIn(sensorEcho, HIGH);
 
-	cm = microsecondsToCm(duration);
+	cmFront = microsecondsToCm(duration);
 
-	setDriveMode(x, cm);
+	setDriveMode(x, cmFront);
 }
 
 void lerBack()
