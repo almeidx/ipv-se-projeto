@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
-const char* ssid = "labmicro";
-const char* password = "microwifi";
+const char *ssid = "labmicro";
+const char *password = "microwifi";
 
 // 0 - Manual
 // 1 - Automático
@@ -21,7 +21,7 @@ void setup() {
   }
 
   Serial.println("");
-  Serial.println("WiFi connected");  
+  Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
   Serial.print("Netmask: ");
@@ -37,10 +37,9 @@ void setup() {
   server.on("/drive_state", HTTP_GET, handleDriveState);
 
   server.begin();
+
   Serial.println("Server started");
 }
-
-int value = 0;
 
 void loop() {
   server.handleClient();
@@ -75,4 +74,3 @@ void handleDriveState() {
   String response = String(drive_state);
   server.send(200, "text/plain", response);
 }
-
