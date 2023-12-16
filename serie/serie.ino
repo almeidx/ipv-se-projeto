@@ -238,5 +238,3 @@ void actualReadUltrassons(int echo, int trig, unsigned int &cm_) {
 unsigned long microsecondsToCm(unsigned long microseconds) {
 	return microseconds / 29 / 2;
 }
-
-
